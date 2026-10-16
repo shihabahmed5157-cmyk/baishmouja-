@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ঐতিহ্যবাহী বাইশমৌজা বাজার | বীরগাঁও, নবীনগর</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tiro Bangla & Hind Siliguri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;family=Tiro+Bangla:ital@0;1&amp;display=swap" rel="stylesheet"/>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#032b26',
+                            teal: '#074e45',
+                            lightTeal: '#0d6e60',
+                            gold: '#d4af37',
+                            lightGold: '#f4e5a9',
+                            sand: '#fdfbf7',
+                            cardBg: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        tiro: ['"Tiro Bangla"', 'serif'],
+                        sans: ['"Hind Siliguri"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #fdfbf7;
+            color: #1f2937;
+        }
+        .heading-font {
+            font-family: 'Tiro Bangla', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(3, 43, 38, 0.70), rgba(7, 78, 69, 0.75)), 
+                        url('https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&amp;fit=crop&amp;w=1600&amp;q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .active-tab {
+            border-bottom: 3px solid #d4af37;
+            color: #d4af37 !important;
+            font-weight: 600;
+        }
+        .active-filter {
+            background-color: #074e45 !important;
+            color: #ffffff !important;
+            border-color: #074e45 !important;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0d6e60;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #074e45;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-dark text-emerald-100 text-xs sm:text-sm py-2 px-4 text-center flex justify-between items-center border-b border-teal-800/50">
+        <div class="container mx-auto flex justify-between items-center">
+            <span><i class="fa-solid fa-bullhorn text-brand-gold mr-2"></i>আগামী মঙ্গলবার বাইশমৌজা বাজারে বসছে দেশের অন্যতম বৃহত্তম পশুর হাট!</span>
+            <span class="hidden md:inline-block"><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> বীরগাঁও ইউনিয়ন, নবীনগর, ব্রাহ্মণবাড়িয়া</span>
+        </div>
+    </div>
+
+    <!-- Floating Developer Quick Button -->
+    <button onclick="openDevModal()" class="fixed right-4 bottom-6 z-40 bg-brand-gold hover:bg-amber-400 text-brand-dark font-bold py-2.5 px-4 rounded-full shadow-2xl flex items-center space-x-2 border-2 border-white transition-all transform hover:scale-105 group" title="ডেভেলপার পরিচিতি">
+        <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-brand-dark flex-shrink-0">
+            <img src="1000038089.jpg" alt="শিহাব আহমেদ" class="w-full h-full object-cover"/>
+        </div>
+        <span class="text-xs sm:text-sm font-bold pr-1">সাইট প্রস্তুতকারক</span>
+    </button>
+
+    <!-- Developer Modal -->
+    <div id="devModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-emerald-100 transform transition-all">
+            <div class="bg-gradient-to-r from-brand-dark to-brand-teal text-white p-6 relative text-center">
+                <button onclick="closeDevModal()" class="absolute top-4 right-4 text-white/80 hover:text-white text-2xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="w-24 h-24 rounded-full border-4 border-brand-gold shadow-lg mx-auto overflow-hidden mb-3 bg-gray-200">
+                    <img src="1000038089.jpg" alt="শিহাব আহমেদ" class="w-full h-full object-cover object-center"/>
+                </div>
+                <h3 class="text-2xl font-bold heading-font text-amber-100">শিহাব আহমেদ</h3>
+                <p class="text-xs text-emerald-200 font-medium bg-brand-lightTeal/60 inline-block px-3 py-1 rounded-full mt-1">
+                    ওয়েবসাইট প্রস্তুতকারক ও ডেভেলপার
+                </p>
+            </div>
+
+            <div class="p-6 space-y-4 text-gray-700 text-sm">
+                <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-xl border border-gray-100">
+                    <div class="w-9 h-9 bg-emerald-100 text-brand-teal rounded-lg flex items-center justify-center text-lg flex-shrink-0 mt-0.5">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold text-gray-500 uppercase block">স্থায়ী ঠিকানা</span>
+                        <span class="font-medium text-gray-800">আমতলী, বীরগাঁও, নবীনগর, ব্রাহ্মণবাড়িয়া</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <a href="tel:09649748578" class="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-xl font-bold transition shadow-md">
+                        <i class="fa-solid fa-phone text-lg"></i>
+                        <span>কল করুন</span>
+                    </a>
+                    <a href="https://wa.me/8801302292975" target="_blank" class="flex items-center justify-center space-x-2 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-bold transition shadow-md">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>হোয়াটসঅ্যাপ</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-brand-teal text-white sticky top-0 z-50 shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center h-20">
+            <a href="#" onclick="switchTab('overview')" class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-brand-gold text-brand-dark flex items-center justify-center font-bold text-2xl shadow-inner border-2 border-amber-200">
+                    <i class="fa-solid fa-ship"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold leading-tight heading-font text-amber-100">বাইশমৌজা বাজার</h1>
+                    <p class="text-xs text-emerald-200 tracking-wider">মেঘনা পাড়ের ২০০ বছরের ইতিহাস</p>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex space-x-1 font-medium">
+                <button onclick="switchTab('overview')" id="tab-overview" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 active-tab text-sm">
+                    <i class="fa-solid fa-landmark mr-1 text-xs"></i> পরিচিতি
+                </button>
+                <button onclick="switchTab('livestock')" id="tab-livestock" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-cow mr-1 text-xs"></i> পশুর হাট
+                </button>
+                <button onclick="switchTab('products')" id="tab-products" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-basket-shopping mr-1 text-xs"></i> পণ্যসমূহ
+                </button>
+                <button onclick="switchTab('businesses')" id="tab-businesses" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-store mr-1 text-xs"></i> ব্যবসা প্রতিষ্ঠান
+                </button>
+                <button onclick="switchTab('banks')" id="tab-banks" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-landmark-flag mr-1 text-xs"></i> ব্যাংক
+                </button>
+                <button onclick="switchTab('pharmacy')" id="tab-pharmacy" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-pills mr-1 text-xs"></i> ফার্মেসি
+                </button>
+                <button onclick="switchTab('transport')" id="tab-transport" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-ferry mr-1 text-xs"></i> যাতায়াত
+                </button>
+                <button onclick="switchTab('schedule')" id="tab-schedule" class="nav-tab px-3 py-2 text-gray-200 hover:text-brand-gold transition duration-200 text-sm">
+                    <i class="fa-solid fa-calendar-days mr-1 text-xs"></i> সময়সূচী
+                </button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-amber-100 focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-dark border-t border-teal-800/60 px-4 py-3 space-y-2">
+            <button onclick="switchTab('overview')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-landmark w-6"></i> সংক্ষিপ্ত পরিচিতি
+            </button>
+            <button onclick="switchTab('livestock')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-cow w-6"></i> পশুর হাট
+            </button>
+            <button onclick="switchTab('products')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-basket-shopping w-6"></i> বিখ্যাত পণ্যসমূহ
+            </button>
+            <button onclick="switchTab('businesses')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-store w-6"></i> ব্যবসা প্রতিষ্ঠান
+            </button>
+            <button onclick="switchTab('banks')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-landmark-flag w-6"></i> ব্যাংক
+            </button>
+            <button onclick="switchTab('pharmacy')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-pills w-6"></i> ফার্মেসি
+            </button>
+            <button onclick="switchTab('transport')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-ferry w-6"></i> যাতায়াত ও রুট
+            </button>
+            <button onclick="switchTab('schedule')" class="mobile-nav-btn block w-full text-left py-2 px-3 rounded-lg text-gray-200 hover:bg-brand-teal hover:text-brand-gold">
+                <i class="fa-solid fa-calendar-days w-6"></i> সময়সূচী ও তথ্য
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 sm:py-24 px-4 relative shadow-xl">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <span class="bg-brand-gold/20 text-amber-300 border border-brand-gold/40 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide inline-block">
+                মেঘনা তীরের ২০০ বছরের বাণিজ্য ঐতিহ্য
+            </span>
+            <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold heading-font leading-tight text-amber-50">
+                ঐতিহ্যবাহী বাইশমৌজা বাজার
+            </h2>
+            <p class="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto leading-relaxed">
+                ব্রাহ্মণবাড়িয়ার নবীনগর উপজেলার বীরগাঁও ইউনিয়নের মেঘনা নদীর কোল ঘেঁষে ওঠা বাইশমৌজা বাজার— যেখানে নদী, গ্রামীণ ঐতিহ্য এবং শতকোটি টাকার ব্যবসা একসূত্রে গাঁথা।
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <button onclick="switchTab('schedule')" class="bg-brand-gold hover:bg-amber-500 text-brand-dark font-bold px-6 py-3 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-0.5">
+                    <i class="fa-regular fa-clock mr-2"></i> হাটের সময়সূচী দেখুন
+                </button>
+                <button onclick="switchTab('transport')" class="bg-emerald-800/80 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl border border-emerald-600 shadow-lg transition duration-300">
+                    <i class="fa-solid fa-location-arrow mr-2"></i> যাতায়াত পথ
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow container mx-auto px-4 sm:px-6 py-10 max-w-7xl">
+
+        <!-- ================= TAB 1: OVERVIEW & HISTORY ================= -->
+        <section id="section-overview" class="tab-content space-y-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-emerald-100">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex items-center space-x-2 text-brand-teal font-semibold text-sm">
+                        <span class="w-3 h-3 bg-brand-gold rounded-full inline-block"></span>
+                        <span>উৎপত্তি ও নামকরণ</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold heading-font text-brand-dark">
+                        আছি মাহমুদের বাজার থেকে 'বাইশমৌজা বাজার'
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        বাইশমৌজা বাজারটি সূচনা লগ্নে স্থানীয় প্রখ্যাত ব্যক্তিত্ব <strong>‘আছি মাহমুদ’</strong>-এর নামে পরিচিত ছিল। পরবর্তীতে বীরগাঁও এবং পার্শ্ববর্তী কৃষ্ণনগর ইউনিয়নের মোট ২২টি মৌজার (গ্রাম) মানুষের ব্যবসায়িক মিলনকেন্দ্রে পরিণত হওয়ায় এটি সর্বসাধারণের কাছে <strong>‘বাইশমৌজা বাজার’</strong> হিসেবে প্রসিদ্ধি লাভ করে।
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        প্রায় দুইশত বছর ধরে নদীবেষ্টিত অঞ্চলের মানুষের অর্থনীতি ও জীবিকার অন্যতম চালিকাশক্তি হিসেবে এই বাজার টিকে রয়েছে। নদীর জলে বড় বড় ট্রলার এবং ভটভটির সারি এই হাটের চিরচেনা রূপ।
+                    </p>
+                </div>
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 text-center space-y-2">
+                        <i class="fa-solid fa-hourglass-start text-3xl text-brand-teal"></i>
+                        <h4 class="text-2xl font-bold text-brand-dark heading-font">২০০+ বছর</h4>
+                        <p class="text-xs text-gray-600">ঐতিহাসিক বয়সক্রম</p>
+                    </div>
+                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 text-center space-y-2">
+                        <i class="fa-solid fa-map-location-dot text-3xl text-brand-teal"></i>
+                        <h4 class="text-2xl font-bold text-brand-dark heading-font">২২ মৌজা</h4>
+                        <p class="text-xs text-gray-600">আঞ্চলিক সংযোগ</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-2xl border border-teal-200 text-center space-y-2 col-span-2">
+                        <i class="fa-solid fa-water text-3xl text-brand-teal"></i>
+                        <h4 class="text-xl font-bold text-brand-dark heading-font">মেঘনা নদীর কোলঘেঁষে</h4>
+                        <p class="text-xs text-gray-600">সম্পূর্ণ নদীভিত্তিক বাণিজ্যের প্রধান কেন্দ্র</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold heading-font text-brand-dark mb-6 text-center">কেন বাইশমৌজা বাজার অনন্য?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-emerald-100 text-brand-teal rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h4 class="text-xl font-bold heading-font text-brand-dark mb-2">অর্থনৈতিক গুরুত্ব</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            নবীনগর ও ভৈরব অঞ্চলসহ মেঘনার উভয় পারের জেলাগুলোর মানুষের ব্যবসা-বাণিজ্যের অন্যতম প্রধান প্রাণকেন্দ্র।
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-800 rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-ship"></i>
+                        </div>
+                        <h4 class="text-xl font-bold heading-font text-brand-dark mb-2">নদীনির্ভর পরিবহন</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            প্রায় ৯০% মালামাল ও পশু নদীপথে বড় বড় ট্রলার এবং ভলগেটের মাধ্যমে ঘাটে আনা-নেওয়া করা হয়।
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-teal-100 text-brand-teal rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h4 class="text-xl font-bold heading-font text-brand-dark mb-2">লোকজ মিলনমেলা</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            শুধু ক্রয়-বিক্রয় নয়, হাটের দিন আশেপাশের হাজার হাজার মানুষের মিলনমেলায় রূপ নেয় পুরো বীরগাঁও।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 2: LIVESTOCK MARKET ================= -->
+        <section id="section-livestock" class="tab-content hidden space-y-10">
+            <div class="bg-gradient-to-r from-brand-dark to-brand-teal text-white p-8 rounded-2xl shadow-md relative overflow-hidden">
+                <div class="max-w-2xl relative z-10 space-y-3">
+                    <span class="bg-amber-400 text-brand-dark text-xs px-3 py-1 rounded-full font-bold uppercase">বিশেষ খ্যাতি</span>
+                    <h3 class="text-3xl font-bold heading-font text-amber-100">বৃহত্তম পশুর হাট</h3>
+                    <p class="text-emerald-100 text-sm leading-relaxed">
+                        ব্রাহ্মণবাড়িয়া জেলার সবচেয়ে বড় গরুর হাটের মধ্যে বাইশমৌজা বাজার অন্যতম। বিশেষ করে প্রতি মঙ্গলবার এখানে পশুর হাট জমজমাট আকার ধারণ করে।
+                    </p>
+                </div>
+                <div class="absolute right-4 bottom-0 opacity-10 text-9xl text-white pointer-events-none hidden md:block">
+                    <i class="fa-solid fa-cow"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-emerald-100 text-center shadow-sm">
+                    <div class="text-2xl font-bold text-brand-teal heading-font">মঙ্গলবার</div>
+                    <div class="text-xs text-gray-500 mt-1">প্রধান পশুর হাটের দিন</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-emerald-100 text-center shadow-sm">
+                    <div class="text-2xl font-bold text-amber-600 heading-font">কোটি+ টাকা</div>
+                    <div class="text-xs text-gray-500 mt-1">সাপ্তাহিক গড় লেনদেন</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-emerald-100 text-center shadow-sm">
+                    <div class="text-2xl font-bold text-brand-teal heading-font">সুলভ হাসিল</div>
+                    <div class="text-xs text-gray-500 mt-1">রোয়ানা ফি সাশ্রয়ী</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-emerald-100 text-center shadow-sm">
+                    <div class="text-2xl font-bold text-emerald-600 heading-font">ঈদের হাট</div>
+                    <div class="text-xs text-gray-500 mt-1">শতকোটি টাকার কেনাবেচা</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                    <h4 class="text-xl font-bold heading-font text-brand-dark flex items-center">
+                        <i class="fa-solid fa-circle-check text-brand-teal mr-2"></i> পশুর হাটের প্রধান বৈশিষ্ট্যসমূহ
+                    </h4>
+                    <ul class="space-y-3 text-gray-700 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-amber-500 mt-1 mr-2"></i>
+                            <span><strong>পৃথক শেড ও বিভাগ:</strong> গরু, মহিষ, ছাগল ও ভেড়া বেচাকেনার জন্য আলাদা আলাদা নির্দিষ্ট সীমানা রয়েছে।</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-amber-500 mt-1 mr-2"></i>
+                            <span><strong>নৌকা লোডিং সুবিধা:</strong> নদীপাড়ে হওয়ায় ট্রলার থেকে সরাসরি গবাদিপশু নামানো ও তোলার সুব্যবস্থা।</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-amber-500 mt-1 mr-2"></i>
+                            <span><strong>কম খরচ:</strong> অন্যান্য বড় হাটের তুলনায় সরকারি নিধারিত হাসিল বা রসিদ ফি তুলনামূলক কম।</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-amber-500 mt-1 mr-2"></i>
+                            <span><strong>দূর-দূরান্তের ব্যাপারী:</strong> ভৈরব, কিশোরগঞ্জ, রায়পুরা, নরসিংদী ও কিশোরগঞ্জ থেকে পাইকাররা ট্রলার নিয়ে আসেন।</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-amber-50/60 p-6 rounded-2xl border border-amber-200/80 space-y-4">
+                    <h4 class="text-xl font-bold heading-font text-brand-dark flex items-center">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-2"></i> ক্রেতা ও বিক্রেতাদের জন্য টিপস
+                    </h4>
+                    <div class="space-y-3 text-gray-700 text-sm">
+                        <div class="p-3 bg-white rounded-lg border border-amber-100">
+                            <strong>সকাল ১০টার মধ্যে পৌঁছান:</strong> হাটে ভালো মানের দেশি গরু ও মহিষ পেতে সকালে ট্রলার ঘাটে উপস্থিত হওয়া সুবিধাজনক।
+                        </div>
+                        <div class="p-3 bg-white rounded-lg border border-amber-100">
+                            <strong>হাসিলের রসিদ সংগ্রহ:</strong> পশু কেনার পর অবশ্যই নির্ধারিত হাসিল কাউন্টার থেকে আসল হাসিল রসিদ বুঝে নিন।
+                        </div>
+                        <div class="p-3 bg-white rounded-lg border border-amber-100">
+                            <strong>নৌ-পরিবহন বুকিং:</strong> পশু পরিবহনের জন্য আগে থেকেই স্থানীয় ট্রলার চালকদের সাথে কথা বলে নেওয়া ভালো।
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 3: PRODUCTS & GALLERY ================= -->
+        <section id="section-products" class="tab-content hidden space-y-8">
+            <div class="text-center space-y-2">
+                <h3 class="text-3xl font-bold heading-font text-brand-dark">বিখ্যাত স্থানীয় পণ্যসমূহ</h3>
+                <p class="text-gray-600 text-sm max-w-xl mx-auto">
+                    বাইশমৌজা বাজারে নিত্যপ্রয়োজনীয় জিনিসপত্র ছাড়াও কিছু বিশেষ পণ্যের জন্য সমাদৃত। ক্যাটাগরি অনুযায়ী ফিল্টার করে দেখুন।
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3" id="product-filters">
+                <button onclick="filterProducts('all')" class="filter-btn active-filter px-4 py-2 rounded-xl border border-gray-300 text-sm font-medium transition">
+                    সব পণ্য
+                </button>
+                <button onclick="filterProducts('spice')" class="filter-btn px-4 py-2 rounded-xl border border-gray-300 text-sm font-medium transition">
+                    <i class="fa-solid fa-pepper-hot mr-1"></i> মরিচ ও মশলা
+                </button>
+                <button onclick="filterProducts('timber')" class="filter-btn px-4 py-2 rounded-xl border border-gray-300 text-sm font-medium transition">
+                    <i class="fa-solid fa-tree mr-1"></i> কাঠ ও আসবাব
+                </button>
+                <button onclick="filterProducts('nets')" class="filter-btn px-4 py-2 rounded-xl border border-gray-300 text-sm font-medium transition">
+                    <i class="fa-solid fa-fish mr-1"></i> জাল ও শুঁটকি
+                </button>
+                <button onclick="filterProducts('craft')" class="filter-btn px-4 py-2 rounded-xl border border-gray-300 text-sm font-medium transition">
+                    <i class="fa-solid fa-cubes-stacked mr-1"></i> বাঁশ-বেত ও হস্তশিল্প
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="products-grid">
+                <div class="product-card bg-white rounded-2xl border border-emerald-100 overflow-hidden shadow-sm hover:shadow-md transition" data-category="spice">
+                    <div class="h-44 bg-red-100 flex items-center justify-center relative">
+                        <i class="fa-solid fa-pepper-hot text-6xl text-red-500"></i>
+                        <span class="absolute top-3 right-3 bg-red-600 text-white text-xs px-2.5 py-1 rounded-full font-semibold">বিখ্যাত</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">দেশি শুকনো মরিচ</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            মেঘনা চরাঞ্চলে উৎপাদিত লাল টুকটুকে খাঁটি শুকনো মরিচের বিশাল চালান পাওয়া যায় এই বাজারে। মশলা কোম্পানির পাইকাররা এখান থেকে পণ্য তোলেন।
+                        </p>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span><i class="fa-solid fa-tag mr-1 text-brand-teal"></i>মশলা বাজার</span>
+                            <span class="font-semibold text-brand-teal">পাইকারি ও খুচরা</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-emerald-100 overflow-hidden shadow-sm hover:shadow-md transition" data-category="timber">
+                    <div class="h-44 bg-amber-100 flex items-center justify-center relative">
+                        <i class="fa-solid fa-couch text-6xl text-amber-800"></i>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">কাঠের আসবাব ও নৌকা</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            হাতে তৈরি কাঠের খাটিয়া, চৌকি, আলমারি এবং মেঘনা নদীর উপযোগী নতুন ডিঙ্গি নৌকা ও কাঠের লাঙল সুলভ মূল্যে কেনা যায়।
+                        </p>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span><i class="fa-solid fa-tag mr-1 text-brand-teal"></i>কাঠ বাজার</span>
+                            <span class="font-semibold text-brand-teal">কারিগরি মানসম্মত</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-emerald-100 overflow-hidden shadow-sm hover:shadow-md transition" data-category="nets">
+                    <div class="h-44 bg-blue-100 flex items-center justify-center relative">
+                        <i class="fa-solid fa-fish text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">মাছ ধরার জাল ও সরঞ্জাম</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            নদী ও হাওরাঞ্চলের জেলেদের প্রয়োজনীয় কারেন্ট জাল, সুতা জাল, চাঁই, ও ভেলকি জাল বিভিন্ন মাপে পাওয়া যায়।
+                        </p>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span><i class="fa-solid fa-tag mr-1 text-brand-teal"></i>মৎস্য বাজার</span>
+                            <span class="font-semibold text-brand-teal">জেলেদের পছন্দ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-emerald-100 overflow-hidden shadow-sm hover:shadow-md transition" data-category="craft">
+                    <div class="h-44 bg-emerald-100 flex items-center justify-center relative">
+                        <i class="fa-solid fa-rugs text-6xl text-emerald-700"></i>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">বাঁশ-বেতের গৃহস্থালি সামগ্রী</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            গ্রাম বাংলার ঐতিহ্যবাহী কুলা, ডালা, ঝুড়ি, মোড়া, পাটি এবং হাতপাখার বিশাল সমাহার বসে প্রতিটি হাটের দিনে।
+                        </p>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span><i class="fa-solid fa-tag mr-1 text-brand-teal"></i>হস্তশিল্প</span>
+                            <span class="font-semibold text-brand-teal">১০০% প্রাকৃতিক</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-emerald-100 overflow-hidden shadow-sm hover:shadow-md transition" data-category="nets">
+                    <div class="h-44 bg-orange-100 flex items-center justify-center relative">
+                        <i class="fa-solid fa-box-archive text-6xl text-orange-600"></i>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">নদী ও সমুদ্রের শুঁটকি</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            দেশি চেপা শুঁটকি, চ্যাপা, বাইম ও পুঁটি মাছের শুঁটকির বিশেষ সুবাসিত পট্টি বসে হাটে।
+                        </p>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span><i class="fa-solid fa-tag mr-1 text-brand-teal"></i>শুঁটকি পট্টি</span>
+                            <span class="font-semibold text-brand-teal">খাঁটি স্বাদ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-emerald-100 overflow-hidden shadow-sm hover:shadow-md transition" data-category="spice">
+                    <div class="h-44 bg-amber-50 flex items-center justify-center relative">
+                        <i class="fa-solid fa-seedling text-6xl text-amber-600"></i>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">মৌসুমী শাকসবজি ও বীজ</h4>
+                        <p class="text-gray-600 text-xs leading-relaxed">
+                            চরের তাজা মিষ্টিকুমড়া, বেগুন, আলু এবং বিভিন্ন রবিশস্যের বীজ পাইকারি দরে বেচাকেনা হয়।
+                        </p>
+                        <div class="pt-2 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span><i class="fa-solid fa-tag mr-1 text-brand-teal"></i>কৃষি বাজার</span>
+                            <span class="font-semibold text-brand-teal">সরাসরি কৃষক থেকে</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB: BUSINESSES ================= -->
+        <section id="section-businesses" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-100 shadow-sm text-center space-y-4">
+                <div class="w-16 h-16 bg-brand-teal/10 text-brand-teal rounded-full flex items-center justify-center text-3xl mx-auto">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-bold heading-font text-brand-dark">ব্যবসা প্রতিষ্ঠানসমূহ</h3>
+                <p class="text-gray-600 text-sm max-w-lg mx-auto">
+                    বাইশমৌজা বাজারের অন্তর্ভুক্ত বিভিন্ন পাইকারি ও খুচরা ব্যবসা প্রতিষ্ঠানের তথ্য ও তালিকা খুব শীঘ্রই এখানে যুক্ত করা হবে।
+                </p>
+                <div class="inline-block bg-amber-50 border border-amber-200 text-amber-800 text-xs px-4 py-2 rounded-xl font-medium">
+                    <i class="fa-solid fa-circle-info mr-1"></i> পরবর্তীতে এখানে তথ্য সংযোজন করা হবে।
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB: BANKS ================= -->
+        <section id="section-banks" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-100 shadow-sm text-center space-y-4">
+                <div class="w-16 h-16 bg-brand-teal/10 text-brand-teal rounded-full flex items-center justify-center text-3xl mx-auto">
+                    <i class="fa-solid fa-landmark-flag"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-bold heading-font text-brand-dark">ব্যাংক ও আর্থিক প্রতিষ্ঠান</h3>
+                <p class="text-gray-600 text-sm max-w-lg mx-auto">
+                    বাজারে লেনদেনের সুবিধার্থে অবস্থিত বা প্রস্তাবিত ব্যাংক, ব্রাঞ্চ এবং মোবাইল ব্যাংকিং এজেন্টের তথ্য পরবর্তীতে এখানে সংযোজন করা হবে।
+                </p>
+                <div class="inline-block bg-amber-50 border border-amber-200 text-amber-800 text-xs px-4 py-2 rounded-xl font-medium">
+                    <i class="fa-solid fa-circle-info mr-1"></i> পরবর্তীতে এখানে তথ্য সংযোজন করা হবে।
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB: PHARMACY ================= -->
+        <section id="section-pharmacy" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-100 shadow-sm text-center space-y-4">
+                <div class="w-16 h-16 bg-brand-teal/10 text-brand-teal rounded-full flex items-center justify-center text-3xl mx-auto">
+                    <i class="fa-solid fa-pills"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-bold heading-font text-brand-dark">ফার্মেসি ও ঔষধালয়</h3>
+                <p class="text-gray-600 text-sm max-w-lg mx-auto">
+                    বাজার এলাকার নির্ভরযোগ্য ঔষধালয় ও ফার্মেসির নাম, ঠিকানা এবং যোগাযোগের নম্বরসমূহ পরবর্তীতে এখানে যুক্ত করা হবে।
+                </p>
+                <div class="inline-block bg-amber-50 border border-amber-200 text-amber-800 text-xs px-4 py-2 rounded-xl font-medium">
+                    <i class="fa-solid fa-circle-info mr-1"></i> পরবর্তীতে এখানে তথ্য সংযোজন করা হবে।
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 4: TRANSPORT & ROUTES ================= -->
+        <section id="section-transport" class="tab-content hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-100 shadow-sm space-y-6">
+                <div class="border-b border-gray-100 pb-4">
+                    <h3 class="text-2xl font-bold heading-font text-brand-dark">বাইশমৌজা বাজারে যাওয়ার উপায়</h3>
+                    <p class="text-gray-600 text-sm mt-1">
+                        মেঘনা নদীবেষ্টিত হওয়ার কারণে এখানে নৌপথই যাতায়াতের সবচেয়ে জনপ্রিয় ও প্রধান মাধ্যম।
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-emerald-50/50 p-5 rounded-xl border border-emerald-200/80 space-y-3">
+                        <div class="w-10 h-10 bg-brand-teal text-white rounded-lg flex items-center justify-center font-bold">১</div>
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">ভৈরব / নরসিংদী পথ</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            ভৈরব বাজার ফেরিঘাট অথবা নরসিংদীর রায়পুরা ঘাট থেকে ইঞ্জিনের ট্রলার বা স্পিডবোটে সরাসরি বীরগাঁও বাইশমৌজা বাজার ঘাটে আসা যায়।
+                        </p>
+                        <div class="text-xs bg-white p-2.5 rounded border border-emerald-100 text-brand-teal font-medium">
+                            <i class="fa-solid fa-clock mr-1"></i> সময়: ৪৫ - ৬০ মিনিট (ট্রলার)
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/50 p-5 rounded-xl border border-amber-200/80 space-y-3">
+                        <div class="w-10 h-10 bg-amber-600 text-white rounded-lg flex items-center justify-center font-bold">২</div>
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">নবীনগর সদর থেকে</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            নবীনগর উপজেলা সদর থেকে সিএনজি বা অটোযোগে কৃষ্ণনগর/বীরগাঁও লঞ্চঘাটে এসে সেখান থেকে ছোট ট্রলারে বাজার ঘাটে পৌঁছানো যায়।
+                        </p>
+                        <div class="text-xs bg-white p-2.5 rounded border border-amber-100 text-amber-800 font-medium">
+                            <i class="fa-solid fa-clock mr-1"></i> সময়: ৩০ - ৪০ মিনিট
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-50/50 p-5 rounded-xl border border-teal-200/80 space-y-3">
+                        <div class="w-10 h-10 bg-teal-700 text-white rounded-lg flex items-center justify-center font-bold">৩</div>
+                        <h4 class="text-lg font-bold heading-font text-brand-dark">ব্রাহ্মণবাড়িয়া জেলা সদর থেকে</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            জেলা সদর থেকে গোকর্ণ বা আশুগঞ্জ হয়ে নদীপথে কিংবা বীরগাঁওগামী সড়কপথ ও ট্রলারের সমন্বয়ে সহজে পৌঁছানো সম্ভব।
+                        </p>
+                        <div class="text-xs bg-white p-2.5 rounded border border-teal-100 text-teal-800 font-medium">
+                            <i class="fa-solid fa-clock mr-1"></i> সময়: ১ ঘন্টা ১৫ মিনিট
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <h4 class="text-lg font-bold heading-font text-brand-dark mb-3">নৌযান ও সার্ভিস বিবরণী</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+                            <thead>
+                                <tr class="bg-brand-teal text-white">
+                                    <th class="p-3 rounded-tl-lg">যানবাহনের ধরন</th>
+                                    <th class="p-3">রুট / পথ</th>
+                                    <th class="p-3">সচল থাকার সময়</th>
+                                    <th class="p-3 rounded-tr-lg">গড় ভাড়া (আনুমানিক)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 border border-gray-200">
+                                <tr class="hover:bg-emerald-50/30">
+                                    <td class="p-3 font-semibold text-brand-dark"><i class="fa-solid fa-ship text-brand-teal mr-2"></i>বড় লোকাল ট্রলার</td>
+                                    <td class="p-3">ভৈরব ⇆ বাইশমৌজা ঘাট</td>
+                                    <td class="p-3">সকাল ৬:০০ - সন্ধ্যা ৬:০০</td>
+                                    <td class="p-3">৳৫০ - ৳৮০ (প্রতি জন)</td>
+                                </tr>
+                                <tr class="hover:bg-emerald-50/30">
+                                    <td class="p-3 font-semibold text-brand-dark"><i class="fa-solid fa-bolt text-amber-500 mr-2"></i>স্পিডবোট</td>
+                                    <td class="p-3">ভৈরব / রায়পুরা ⇆ বাজার ঘাট</td>
+                                    <td class="p-3">চাহিদা অনুযায়ী (রিজার্ভ)</td>
+                                    <td class="p-3">৳১৫০ - ৳২০০ (শেয়ারে)</td>
+                                </tr>
+                                <tr class="hover:bg-emerald-50/30">
+                                    <td class="p-3 font-semibold text-brand-dark"><i class="fa-solid fa-truck-ramp-box text-emerald-700 mr-2"></i>মালবাহী ভলগেট/ট্রলার</td>
+                                    <td class="p-3">গবাদিপশু ও ভারী মালামাল পরিবহন</td>
+                                    <td class="p-3">হাটের আগের দিন ও হাটের দিন</td>
+                                    <td class="p-3">চুক্তিভিত্তিক</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 5: SCHEDULE & INFO ================= -->
+        <section id="section-schedule" class="tab-content hidden space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-emerald-100 shadow-sm space-y-6">
+                    <h3 class="text-2xl font-bold heading-font text-brand-dark flex items-center">
+                        <i class="fa-solid fa-calendar-check text-brand-teal mr-3"></i> সাপ্তাহিক হাটের সময়সূচী
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-xl border-l-4 border-amber-500 bg-amber-50/40 flex justify-between items-center">
+                            <div>
+                                <span class="bg-amber-200 text-amber-900 text-xs px-2.5 py-0.5 rounded font-bold">প্রধান হাটবার</span>
+                                <h4 class="text-xl font-bold heading-font text-brand-dark mt-1">মঙ্গলবার</h4>
+                                <p class="text-xs text-gray-600">বিশাল পশুর হাট, কাঠের বাজার, শুঁটকি ও সকল প্রকার পাইকারি কেনাবেচা</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm font-semibold text-brand-teal block">ভোর ৬:০০ - সন্ধ্যা ৬:০০</span>
+                                <span class="text-xs text-gray-500">সারাদিন সচল</span>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl border-l-4 border-brand-teal bg-emerald-50/40 flex justify-between items-center">
+                            <div>
+                                <span class="bg-emerald-200 text-emerald-900 text-xs px-2.5 py-0.5 rounded font-bold">দ্বিতীয় হাটবার</span>
+                                <h4 class="text-xl font-bold heading-font text-brand-dark mt-1">শনিবার</h4>
+                                <p class="text-xs text-gray-600">নিত্যপ্রয়োজনীয় পণ্য, স্থানীয় শাকসবজি, মাছ ও সাধারণ পশুর বিকিকিনি</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm font-semibold text-brand-teal block">সকাল ৭:০০ - বিকেল ৫:০০</span>
+                                <span class="text-xs text-gray-500">সারাদিন সচল</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 flex justify-between items-center">
+                            <div>
+                                <h5 class="font-bold text-gray-800">দৈনিক বাজার</h5>
+                                <p class="text-xs text-gray-500">স্থানীয় কাঁচাবাজার ও নিত্যপ্রয়োজনীয় দোকানপাট</p>
+                            </div>
+                            <span class="text-xs font-semibold text-gray-600">প্রতিদিন বিকাল - রাত ৯:০০</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-brand-dark text-white p-6 sm:p-8 rounded-2xl shadow-sm space-y-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold heading-font text-amber-200 mb-4 flex items-center">
+                            <i class="fa-solid fa-circle-info mr-2"></i> প্রশাসনিক তথ্য ও অবস্থান
+                        </h3>
+                        <div class="space-y-3 text-sm text-emerald-100">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-map-pin text-brand-gold mt-1"></i>
+                                <div>
+                                    <strong>গ্রাম/ইউনিয়ন:</strong> বীরগাঁও ইউনিয়ন
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-building text-brand-gold mt-1"></i>
+                                <div>
+                                    <strong>উপজেলা:</strong> নবীনগর
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-city text-brand-gold mt-1"></i>
+                                <div>
+                                    <strong>জেলা:</strong> ব্রাহ্মণবাড়িয়া, চট্টগ্রাম বিভাগ
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-water text-brand-gold mt-1"></i>
+                                <div>
+                                    <strong>তীরবর্তী নদী:</strong> মেঘনা নদী
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-teal/80 p-4 rounded-xl border border-teal-600/50 space-y-2 mt-6">
+                        <span class="text-xs text-amber-300 font-semibold block uppercase">জরুরি সহায়তা</span>
+                        <p class="text-xs text-gray-200">
+                            বাজার সংক্রান্ত যেকোনো তথ্য, ইজারা বা পশুর নিরাপত্তা বিধানে বীরগাঁও ইউনিয়ন পরিষদ কার্যালয়ে যোগাযোগ করা যেতে পারে।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DEVELOPER SECTION ================= -->
+        <section class="mt-16 bg-gradient-to-r from-brand-dark via-brand-teal to-brand-dark text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-teal-700">
+            <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                <div class="relative flex-shrink-0">
+                    <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-brand-gold shadow-2xl overflow-hidden bg-gray-300 mx-auto">
+                        <img src="1000038089.jpg" alt="শিহাব আহমেদ" class="w-full h-full object-cover object-center"/>
+                    </div>
+                    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-brand-gold text-brand-dark text-xs font-extrabold px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+                        ওয়েবসাইট নির্মাতা
+                    </span>
+                </div>
+
+                <div class="flex-grow text-center md:text-left space-y-3">
+                    <span class="text-amber-300 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-code mr-1"></i> ওয়েবসাইট প্রস্তুতকারক পরিচিতি
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-bold heading-font text-amber-100">শিহাব আহমেদ</h3>
+                    <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-xl">
+                        ঐতিহ্যবাহী বাইশমৌজা বাজার এবং বীরগাঁও ইউনিয়নের পরিচিতি ইন্টারনেটে তুলে ধরার লক্ষ্যে ওয়েবসাইটটির পরিকল্পনা ও কারিগরি বাস্তবায়ন করা হয়েছে।
+                    </p>
+                    
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs">
+                        <div class="flex items-center text-emerald-200 bg-brand-dark/50 px-3 py-1.5 rounded-lg border border-teal-700/50">
+                            <i class="fa-solid fa-location-dot text-brand-gold mr-2"></i>
+                            <span>আমতলী, বীরগাঁও, নবীনগর, ব্রাহ্মণবাড়িয়া</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 flex flex-wrap justify-center md:justify-start gap-3">
+                        <a href="tel:09649748578" class="bg-brand-gold hover:bg-amber-400 text-brand-dark font-bold px-4 py-2 rounded-xl text-xs flex items-center space-x-2 transition shadow">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>০৯৬৪৯৭৪৮৫৭৮</span>
+                        </a>
+                        <a href="https://wa.me/8801302292975" target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center space-x-2 transition shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>০১৩০২২৯M২৭৫ (WhatsApp)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white border-t border-teal-800/60 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-bold heading-font text-amber-100">ঐতিহ্যবাহী বাইশমৌজা বাজার</h4>
+                    <p class="text-xs text-emerald-300">বীরগাঁও ইউনিয়ন, নবীনগর, ব্রাহ্মণবাড়িয়া</p>
+                </div>
+                <div class="text-xs text-gray-400">
+                    &copy; ২০২৬ বাইশমৌজা বাজার তথ্যকোষ। প্রস্তুতকারক: <span class="text-amber-300 font-semibold">শিহাব আহমেদ</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>//<![CDATA[
+        function openDevModal() {
+            document.getElementById('devModal').classList.remove('hidden');
+        }
+        function closeDevModal() {
+            document.getElementById('devModal').classList.add('hidden');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('devModal');
+            if (event.target == modal) {
+                closeDevModal();
+            }
+        }
+
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            const selectedContent = document.getElementById('section-' + tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+
+            const selectedTab = document.getElementById('tab-' + tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active-tab');
+            }
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('hidden');
+
+            window.scrollTo({
+                top: 320,
+                behavior: 'smooth'
+            });
+        }
+
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            filterBtns.forEach(btn => btn.classList.remove('active-filter'));
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active-filter');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    //]]></script>
+</body>
+</html>
